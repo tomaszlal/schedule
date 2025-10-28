@@ -15,6 +15,7 @@ public class Schedule {
     @Scheduled(fixedRate = 10000)
     public void fixedRateTask() throws Exception {
         System.out.println("Run task on: "+ LocalTime.now());
-        commandRunner.run("ls -l > /home/tomasz/kupa.txt");
+//        commandRunner.run("ls -l > /home/tomasz/kupa.txt");
+        commandRunner.runCommand();
     }
 }
