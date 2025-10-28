@@ -9,7 +9,7 @@ import java.util.List;
 public class CommandRunner{
 
    public void runCommand(){ //List<String> commands
-       ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "dir");
+       ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "../resources/ping.bat");
 //       builder.inheritIO();
 
        try {
