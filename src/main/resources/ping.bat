@@ -1,7 +1,8 @@
 @echo off
-ECHO Performing initial task...
-
+echo -----------------------------------------
+echo Script started on %DATE% at %TIME%
 :: To wait for 5 seconds, use -n 6 (5 seconds of delay)
-PING 127.0.0.1 -n 6 > NUL
+PING 127.0.0.1 -n 6
 
-ECHO Delay complete. Continuing with the next task...
+ECHO End of task.
+echo.
