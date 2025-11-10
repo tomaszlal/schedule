@@ -8,8 +8,8 @@ import java.util.List;
 @Component
 public class CommandRunner{
 
-   public void runCommand(){ //List<String> commands
-       ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/C" ,"c:\\script\\ping.bat", ">>", "c:\\script\\ping.log");
+   public void runCommand(List<String> commands){
+       ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/C" , String.join(" ", commands));
        try {
            Process process = builder.start();
            System.out.println("Process run");
@@ -20,15 +20,8 @@ public class CommandRunner{
            } else {
                System.err.println("Windows script failed with exit code: " + exitCode);
            }
-
-
        } catch (IOException | InterruptedException e) {
            throw new RuntimeException(e);
        }
    }
-
-
-//    public void run(String... args) throws Exception {
-//        System.out.println(args.length);
-//    }
 }

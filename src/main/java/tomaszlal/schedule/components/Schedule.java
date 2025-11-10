@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.List;
 
 @Component
 public class Schedule {
@@ -12,15 +13,9 @@ public class Schedule {
     @Autowired
     private CommandRunner commandRunner;
 
-//    @Scheduled(fixedRate = 10000)
-//    public void fixedRateTask() throws Exception {
-//        System.out.println("Run task on: "+ LocalTime.now());
-////        commandRunner.run("ls -l > /home/tomasz/kupa.txt");
-//        commandRunner.runCommand();
-//    }
-
     @Scheduled(cron = "0 0/3 * * * ?")
     public void croneTask() throws Exception {
-        commandRunner.runCommand();
+        List<String> commands = Arrays.asList("c:\\script\\ping_run.bat", ">>", "c:\\script\\ping.log");
+        commandRunner.runCommand(commands);
     }
 }
